@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Objects Game - Bimukti Mozzumdar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-color: #333;
+            --accent-color: #6c5ce7;
+            --bg-color: #97bc7c;
+            --text-color: #333;
+            --section-bg: rgba(255, 255, 255, 0.2);
+            --code-bg: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #3e2723, #8d6e63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .back-nav {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--section-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            color: #404040;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #5649c0;
+            text-decoration: underline;
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #404040;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            font-family: monospace;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        .action-button:hover {
+            background-color: #5649c0;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            main {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="your-photo.jpg" alt="Bimukti Mozzumdar" class="profile-image">
+    
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="back-nav">
+        <a href="projects.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+    </div>
+
+    <main>
+        <div class="project-header">
+            <h2 class="project-title">Sorting Objects Game</h2>
+            <p>A C++ project simulating a sorting task, where objects (shapes) are moved between bins to achieve a sorted configuration. The game is interactive and visually displays bins and shapes using Unicode symbols. I developed this game as my final project for CSCI-135, incorporating concepts in <strong>object-oriented programming</strong>.</p>
+            
+            <div class="project-links">
+                <a href="https://gist.github.com/b-mozz/b17839766941be996aed0842f48027ed" target="_blank" class="project-link">
+                    <i class="fab fa-github"></i> GitHub Gist
+                </a>
+            </div>
+        </div>
+
+
+
+        <div class="section">
+            <h3 class="section-title">Features</h3>
+            <ul>
+                <li><strong>Interactive Gameplay</strong>: Players move objects between bins while following specific rules.</li>
+                <li><strong>Custom Algorithms</strong>: Validates user moves, updates game state in real-time, and handles edge cases effectively.</li>
+                <li><strong>Efficient Data Storage</strong>: Implements 2D vectors to store and manipulate bin data.</li>
+                <li><strong>Visual Interface</strong>: Displays shapes and bins using Unicode symbols, with color-coded shapes for better visualization.</li>
+                <li><strong>Debugging & Optimization</strong>: Strengthened debugging skills using GDB, ensuring robust performance and optimized memory management.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">How to Play</h3>
+            <ol>
+                <li>The game starts by displaying the initial state of the bins with shapes.</li>
+                <li>You are prompted to enter two bin numbers:
+                    <ul>
+                        <li>The bin to move an object <strong>from</strong>.</li>
+                        <li>The bin to move the object <strong>to</strong>.</li>
+                    </ul>
+                </li>
+                <li>Follow the rules:
+                    <ul>
+                        <li>Objects can only be moved to a bin with the same top shape or an empty bin.</li>
+                        <li>The destination bin must have enough capacity to hold the moved objects.</li>
+                    </ul>
+                </li>
+                <li>The goal is to sort all shapes into separate bins.</li>
+                <li>To exit the game, enter <code>-1 -1</code> when prompted.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Technologies Used</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Object Oriented Programming</span>
+                <span class="tech-tag">Data Structures</span>
+                <span class="tech-tag">2D Vectors</span>
+                <span class="tech-tag">GDB</span>
+                <span class="tech-tag">Unicode</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Project Structure</h3>
+            <ul>
+                <li><code>SortGame.hpp</code>: Header file defining the game class and methods.</li>
+                <li><code>SortGame.cpp</code>: Implementation file containing the game logic.</li>
+                <li><code>main.cpp</code>: Entry point of the program, initializes the game and calls the play method.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">How to Run</h3>
+            <ol>
+                <li>Clone the repository:
+                    <pre><code>git clone https://github.com/b-mozz/SortGame.git</code></pre>
+                </li>
+                <li>Compile the project:
+                    <pre><code>g++ SortGame.cpp test.cpp -o SortGame --std=c++20</code></pre>
+                </li>
+                <li>Run the game:
+                    <pre><code>./SortGame</code></pre>
+                </li>
+            </ol>
+        </div>
+
+        <div class="action-buttons">
+            <a href="https://github.com/b-mozz/SortGame.git" target="_blank" class="action-button">
+                <i class="fab fa-github"></i> View Source Code
+            </a>
+            <a href="projects.html" class="action-button">
+                <i class="fas fa-project-diagram"></i> Explore Other Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bimukti Mozzumdar. All rights reserved.</p>
+    </footer>
+</body>
+</html>
