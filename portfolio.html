@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimukti Mozzumdar - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-color: #333;
+            --accent-color: #6c5ce7;
+            --bg-color: #97bc7c;
+            --text-color: #333;
+            --button-bg: rgba(0, 0, 0, 0.05);
+            --button-hover: rgba(0, 0, 0, 0.1);
+            --section-bg: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2rem;
+            background: linear-gradient(to right, #3e2723, #8d6e63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .intro {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4a4a4a;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #4a4a4a;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+            background-color: rgba(108, 92, 231, 0.2);
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: #4a148c;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .experience-company {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .experience-description {
+            margin-top: 0.5rem;
+        }
+
+        .experience-description ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #5649c0;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #555;
+        }
+
+        .back-to-home {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-5px);
+            background-color: #5649c0;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(20px, -20px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <img src="your-photo.jpg" alt="Bimukti Mozzumdar" class="profile-image">
+                
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="intro">
+            <h2>About Me</h2>
+            <p>I'm a Computer Science student at CUNY Hunter College with a perfect 4.0 GPA and a passion for developing applications that solve real-world problems. My academic journey is enriched by being part of the Thomas Hunter Honors Program.</p>
+            <p>As an IT Technician at the Social Science Computing Lab, I support hundreds of students and faculty with their technology needs, while also utilizing my skills in programming and data analysis to create impactful solutions.</p>
+            <p>With strong skills in C, C++, and Python, combined with my experience in mentoring and leadership, I'm committed to creating technology that makes a positive difference.</p>
+        </section>
+
+        <section class="section">
+            <h2>Skills</h2>
+            <h3>Technical Skills</h3>
+            <div class="skills-container">
+                <div class="skill">C</div>
+                <div class="skill">C++</div>
+                <div class="skill">Python</div>
+                <div class="skill">HTML</div>
+                <div class="skill">Pandas</div>
+                <div class="skill">Streamlit</div>
+                <div class="skill">Matplotlib</div>
+                <div class="skill">Folium</div>
+                <div class="skill">Scikit-Learn</div>
+                <div class="skill">Data Analysis</div>
+                <div class="skill">Web Development</div>
+            </div>
+
+            <h3>Languages</h3>
+            <div class="skills-container">
+                <div class="skill">Bengali (Fluent)</div>
+                <div class="skill">English (Fluent)</div>
+                <div class="skill">Hindi (Conversational)</div>
+                <div class="skill">Urdu (Conversational)</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Project</h2>
+            <div class="project-card">
+                <h3>Exploring NYC Neighborhoods by ZIP Codes</h3>
+                <p>An interactive web application that allows users to analyze and visualize NYC neighborhoods by ZIP codes. The application provides valuable insights into different areas of New York City through comprehensive data visualization.</p>
+                
+                <h4>Technical Highlights:</h4>
+                <ul>
+                    <li>Developed using Python with Streamlit, Folium, and Matplotlib libraries</li>
+                    <li>Processed and integrated datasets containing over 10,000 entries using Pandas</li>
+                    <li>Implemented mapping functionality using scikit-learn to connect geographical coordinates with ZIP codes</li>
+                    <li>Deployed on Streamlit Cloud for seamless user interaction and real-time data visualization</li>
+                </ul>
+                
+                <div class="project-links">
+                    <a href="https://github.com/b-mozz/nyc-neighborhoods" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                    <a href="https://nyc-neighborhoods.streamlit.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">IT Technician – Social Science Computing Lab</div>
+                        <div class="experience-company">CUNY Hunter College</div>
+                    </div>
+                    <div class="experience-date">October 2024 – Present</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Maintain and troubleshoot lab equipment and software applications</li>
+                        <li>Support 300+ students and faculty with educational technology, including data analysis software such as Excel, Google Sheets, Stata, and SPSS, as well as research tools</li>
+                        <li>Manage desk inquiries, updating web content using HTML, ensuring 100% accuracy</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Interpreter Poll Worker</div>
+                        <div class="experience-company">New York City</div>
+                    </div>
+                    <div class="experience-date">October 2024 – Present</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Registered to assist voters with Bengali language interpretation services during elections</li>
+                        <li>Prepared to facilitate communication for Bengali-speaking voters, ensuring seamless voting processes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Leadership Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Curriculum Designer & Mentor</div>
+                        <div class="experience-company">The Dynamic Ninja, Sylhet, Bangladesh</div>
+                    </div>
+                    <div class="experience-date">January 2023 – June 2023</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Designed a calculus course for high-achieving high school students in Bangladesh</li>
+                        <li>Collaborated with instructors in finding and organizing course materials</li>
+                        <li>Managed student grades and performance tracking</li>
+                        <li>Mentored 28 students preparing for the Bangladesh Engineering Entrance exam</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Bachelor's in Computer Science</div>
+                        <div class="experience-company">CUNY Hunter College, New York, NY</div>
+                    </div>
+                    <div class="experience-date">Expected December 2027</div>
+                </div>
+                <div class="experience-description">
+                    <p><strong>GPA:</strong> 4.0/4.0</p>
+                    <p><strong>Honors and Awards:</strong> Thomas Hunter Honors Program, Dean's List (Spring 2024, Fall 2024)</p>
+                    <p><strong>Relevant Coursework:</strong> Introduction to Computer Science, Software Analysis and Design 1 & 2, Computer Architecture 1, Discrete Structure, Calculus I & II, Matrix Algebra</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Resume</h2>
+            <p>Want to see my full resume? You can download it as a PDF or view it on a dedicated page.</p>
+            <a href="resume.html" class="cta-button">View Full Resume</a>
+            <a href="resume.pdf" class="cta-button" download>Download PDF</a>
+        </section>
+    </div>
+
+    <a href="index.html" class="back-to-home">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2025 Bimukti Mozzumdar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+
+        function createParticles() {
+            const container = document.querySelector('body');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                particle.style.cssText = `
+                    width: ${Math.random() * 5 + 1}px;
+                    height: ${Math.random() * 5 + 1}px;
+                    top: ${Math.random() * 100}vh;
+                    left: ${Math.random() * 100}vw;
+                    opacity: ${Math.random() * 0.5 + 0.3};
+                    animation: float ${Math.random() * 10 + 10}s linear infinite;
+                    animation-delay: -${Math.random() * 10}s;
+                `;
+                
+                container.appendChild(particle);
+            }
+        }
+    </script>
+</body>
+</html>
