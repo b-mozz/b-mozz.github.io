@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimukti Mozzumdar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+        :root {
+        --primary-color: #2a2929;
+        --accent-color: #373545;
+        --bg-color: #99BC85; 
+        --text-color: #333; 
+        --button-bg: rgba(0, 0, 0, 0.05);
+        --button-hover: rgba(0, 0, 0, 0.1);
+}
+    
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.1), transparent 70%);
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            width: 90%;
+            max-width: 1200px;
+            z-index: 1;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+        }
+
+        .placeholder-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            opacity: 1;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .placeholder-image:hover {
+            transform: scale(1.05);
+        }
+
+        .placeholder-image::after {
+            content: 'Add Photo';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.8rem;
+            opacity: 1;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #004d40, #00897b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(108, 92, 231, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .github {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .github a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .github a:hover {
+            color: var(--accent-color);
+        }
+
+        .navigation {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .nav-button {
+            position: relative;
+            padding: 1.5rem;
+            background-color: var(--button-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-button::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, var(--accent-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent-color);
+            background-color: var(--button-hover);
+        }
+
+        .nav-button:hover::before {
+            opacity: 0.3;
+        }
+
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .profile-info {
+                text-align: center;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .navigation {
+                grid-template-columns: 1fr;
+            }
+            
+            .github {
+                justify-content: center;
+            }
+        }
+
+        /* Animation for particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(20px, -20px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-image">
+                
+                <img src="BimuktiMozzumdar.JPG" alt="Bimukti Mozzumdar" class="placeholder-image">
+            </div>
+            <div class="profile-info">
+                <h1 class="name">Bimukti Mozzumdar</h1>
+                <p class="subtitle">Sophomore, CUNY Hunter College</p>
+                <p class="github"><i class="fab fa-github"></i> <a href="https://github.com/b-mozz" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="portfolio.html" class="nav-button" data-text="Portfolio">
+                <span>Portfolio</span>
+            </a>
+            <a href="projects.html" class="nav-button" data-text="Projects">
+                <span>Projects</span>
+            </a>
+            <a href="resume.html" class="nav-button" data-text="Resume">
+                <span>Resume</span>
+            </a>
+            <a href="contact.html" class="nav-button" data-text="Contact">
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            createParticles();
+            
+            
+            const buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    playHoverSound();
+                });
+            });
+            
+            
+            const nameElement = document.querySelector('.name');
+            if (nameElement) {
+                const name = nameElement.textContent;
+                typeWriter(nameElement, name);
+            }
+        });
+
+    
+        function createParticles() {
+            const container = document.querySelector('body');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 5 + 1}px;
+                    height: ${Math.random() * 5 + 1}px;
+                    background-color: rgba(255, 255, 255, ${Math.random() * 0.3});
+                    top: ${Math.random() * 100}vh;
+                    left: ${Math.random() * 100}vw;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    opacity: ${Math.random() * 0.5 + 0.3};
+                    animation: float ${Math.random() * 10 + 10}s linear infinite;
+                    animation-delay: -${Math.random() * 10}s;
+                    z-index: -1;
+                `;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        
+        function typeWriter(element, text, i = 0) {
+            if (i === 0) {
+                element.textContent = '';
+            }
+            
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(() => typeWriter(element, text, i), 100);
+            }
+        }
+
+       
+        function playHoverSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(1200, audioContext.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.1);
+                
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.start();
+                oscillator.stop(audioContext.currentTime + 0.2);
+            } catch (e) {
+                
+                console.log("Audio not supported");
+            }
+        }
+    </script>
+</body>
+</html>
