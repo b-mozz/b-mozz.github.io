@@ -3,21 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bimukti Mozzumdar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>bimukti mozzumdar</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
-
-        :root {
-        --primary-color: #2a2929;
-        --accent-color: #373545;
-        --bg-color: #EDE8DC; 
-        --text-color: #333; 
-        --button-bg: rgba(0, 0, 0, 0.05);
-        --button-hover: rgba(0, 0, 0, 0.1);
-}
-    
-
         * {
             margin: 0;
             padding: 0;
@@ -25,341 +13,759 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.1), transparent 70%);
-            z-index: -1;
+            font-family: "Inter", sans-serif;
+            background: #f5f3ed;
+            color: #3a3a3a;
+            line-height: 1.7;
+            font-size: 14px;
+            margin: 0;
+            font-weight: 300;
+            text-rendering: optimizeLegibility;
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4rem;
-            width: 90%;
-            max-width: 1200px;
-            z-index: 1;
-        }
-
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .profile-image {
-            flex-shrink: 0;
-        }
-
-        .placeholder-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            opacity: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 40px;
             position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
         }
 
-        .placeholder-image:hover {
-            transform: scale(1.05);
-        }
-
-        .placeholder-image::after {
-            content: 'Add Photo';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.8rem;
-            opacity: 1;
-        }
-
-        .profile-info {
-            text-align: left;
-        }
-
-        .name {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #004d40, #00897b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(108, 92, 231, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .github {
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .github a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .github a:hover {
-            color: var(--accent-color);
-        }
-
-        .navigation {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .nav-button {
-            position: relative;
-            padding: 1.5rem;
-            background-color: var(--button-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.5rem;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-
-        .nav-button::before {
-            content: attr(data-text);
-            position: absolute;
+        .container::before {
+            content: '';
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, var(--accent-color), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(200, 180, 150, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(180, 160, 140, 0.03) 0%, transparent 50%);
+            pointer-events: none;
             z-index: -1;
         }
 
-        .nav-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border-color: var(--accent-color);
-            background-color: var(--button-hover);
+        /* Typography */
+        h1, h2, h3 {
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 500;
+            letter-spacing: -0.02em;
         }
 
-        .nav-button:hover::before {
-            opacity: 0.3;
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
         }
 
-        
-        @media (max-width: 768px) {
-            body {
-        height: auto;
-        min-height: 100vh;
-        overflow-y: auto;
-        }
-    
-            .container {
-            height: auto;
-            min-height: 100vh;
-            padding-bottom: 4rem;
-            }
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            
-            .profile-info {
-                text-align: center;
-            }
-            
-            .name {
-                font-size: 2.5rem;
-            }
-            
-            .navigation {
-                grid-template-columns: 1fr;
-            }
-            
-            .github {
-                justify-content: center;
-            }
+        h2 {
+            font-size: 20px;
+            margin: 40px 0 16px 0;
+            color: #444;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 8px;
         }
 
-        /* Animation for particles */
-        .particle {
+        h3 {
+            font-size: 16px;
+            margin: 24px 0 12px 0;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 1px dotted #bbb;
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header::after {
+            content: "~";
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background-color: rgba(255, 255, 255, 0.3);
-            pointer-events: none;
-            border-radius: 50%;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f5f3ed;
+            padding: 0 8px;
+            color: #999;
+            font-family: "JetBrains Mono", monospace;
         }
 
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate(20px, -20px) rotate(180deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(360deg);
+        .name {
+            font-size: 32px;
+            margin-bottom: 6px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .role {
+            color: #777;
+            margin-bottom: 4px;
+            font-size: 15px;
+            font-style: italic;
+        }
+
+        .location {
+            color: #999;
+            font-size: 13px;
+            font-family: "JetBrains Mono", monospace;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: none;
+            border: none;
+            padding: 0;
+            margin-bottom: 48px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 13px;
+            display: flex;
+            gap: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #888;
+            text-decoration: none;
+            padding: 6px 16px;
+            position: relative;
+            transition: all 0.3s ease;
+            border-right: 1px solid #ddd;
+        }
+
+        .nav a:last-child {
+            border-right: none;
+        }
+
+        .nav a:hover {
+            color: #555;
+        }
+
+        .nav a.current {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav a.current::after {
+            content: "*";
+            position: absolute;
+            top: -2px;
+            right: 4px;
+            font-size: 10px;
+            color: #999;
+        }
+
+        /* Content sections */
+        .section {
+            display: none;
+            margin-bottom: 40px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 16px;
+            color: #444;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        /* Links */
+        a {
+            color: #6b7b8d;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: #5a6b7d;
+            border-bottom-color: rgba(107, 123, 141, 0.5);
+        }
+
+        /* Code styling */
+        code, pre {
+            font-family: "JetBrains Mono", monospace;
+            background: #f5f5f5;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        code {
+            padding: 2px 6px;
+            color: #666;
+        }
+
+        pre {
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+            border: 1px solid #e5e5e5;
+        }
+
+        /* Card styling */
+        .card {
+            background: none;
+            border: none;
+            border-left: 2px solid #ddd;
+            padding: 16px 0 16px 20px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+
+        .card h4 {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .card h4 a {
+            color: #6b7b8d;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(107, 123, 141, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .card h4 a:hover {
+            color: #5a6b7d;
+            border-bottom-color: rgba(107, 123, 141, 0.6);
+        }
+
+        .card .meta a {
+            color: #8595a3;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(133, 149, 163, 0.4);
+            font-size: 10px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .card .meta a:hover {
+            color: #6b7b8d;
+            border-bottom-color: rgba(107, 123, 141, 0.7);
+        }
+
+        .card p {
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .card .meta {
+            font-size: 11px;
+            color: #999;
+            font-family: "JetBrains Mono", monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+
+        /* Status indicator */
+        .status {
+            display: inline-block;
+            background: none;
+            border: 1px dashed #ccc;
+            padding: 8px 12px;
+            margin: 20px 0;
+            font-size: 12px;
+            font-family: "JetBrains Mono", monospace;
+            color: #777;
+            position: relative;
+        }
+
+        .status::before {
+            content: "[";
+            color: #999;
+        }
+
+        .status::after {
+            content: "]";
+            color: #999;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #999;
+            margin-right: 8px;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        /* Skills grid */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+            line-height: 1.8;
+        }
+
+        .skill {
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            color: #777;
+            position: relative;
+        }
+
+        .skill::before {
+            content: "• ";
+            color: #bbb;
+        }
+
+        .skill:hover {
+            color: #555;
+        }
+
+        .skill:not(:last-child)::after {
+            content: "";
+            margin-left: 8px;
+        }
+
+        /* Contact cards */
+        .contact-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(107, 123, 141, 0.2);
+        }
+
+        .contact-label {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 15px;
+            color: #333;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px dotted #ccc;
+            padding-top: 32px;
+            margin-top: 64px;
+            text-align: center;
+            color: #999;
+            font-size: 11px;
+            font-family: "JetBrains Mono", monospace;
+            position: relative;
+        }
+
+        .footer::before {
+            content: "~";
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f5f3ed;
+            padding: 0 8px;
+            color: #ccc;
+        }
+
+        .footer p {
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Subtle animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
             }
         }
+
+        /* Additional indie touches */
+        h2::before {
+            content: "// ";
+            color: #bbb;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 14px;
+        }
+
+        h3::before {
+            content: "> ";
+            color: #ddd;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+        }
+
+        /* Vintage cursor */
+        body {
+            cursor: default;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .nav a {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                padding: 8px 0;
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
+            }
+
+            .skills {
+                gap: 4px;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="profile-section">
-            <div class="profile-image">
-                
-                <img src="BimuktiMozzumdar.JPG" alt="Bimukti Mozzumdar" class="placeholder-image">
-            </div>
-            <div class="profile-info">
-                <h1 class="name">Bimukti Mozzumdar</h1>
-                <p class="subtitle">Sophomore, CUNY Hunter College</p>
-                <p class="github"><i class="fab fa-github"></i> <a href="https://github.com/b-mozz" target="_blank">GitHub</a></p>
-            </div>
-        </div>
+        <header class="header fade-in">
+            <h1 class="name">bimukti mozzumdar</h1>
+            <div class="role">computer science student</div>
+            <div class="location">cuny hunter college • new york</div>
+        </header>
 
-        <div class="navigation">
-            <a href="portfolio.html" class="nav-button" data-text="Portfolio">
-                <span>Portfolio</span>
-            </a>
-            <a href="projects.html" class="nav-button" data-text="Projects">
-                <span>Projects</span>
-            </a>
-            <a href="ResumeIndex.html" class="nav-button" data-text="Resume">
-                <span>Resume</span>
-            </a>
-            <a href="contact.html" class="nav-button" data-text="Contact">
-                <span>Contact</span>
-            </a>
-        </div>
+        <nav class="nav fade-in">
+            <a href="#" class="nav-link current" data-section="about">about</a>
+            <a href="#" class="nav-link" data-section="projects">projects</a>
+            <a href="#" class="nav-link" data-section="work">work</a>
+            <a href="#" class="nav-link" data-section="skills">skills</a>
+            <a href="#" class="nav-link" data-section="contact">contact</a>
+        </nav>
+
+        <main>
+            <!-- About Section -->
+            <section class="section active fade-in" id="about">
+                <p>hi! i'm a sophomore computer science student at cuny hunter college, part of the thomas hunter honors program. i'm passionate about building technology that solves real-world problems through web development, data analysis, and automation.</p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    software engineering intern at unadat (summer 2025)
+                </div>
+                <div class="status">
+                    <span class="status-dot"></span>
+                    it technician at sscl, hunter college (oct 2024 - present)
+                </div>
+
+                <p>currently working as an it technician at hunter's social science computing lab, where i support 300+ students and faculty with educational technology including data analysis tools like stata, spss, excel, and research software. i also serve my community as a bengali interpreter poll worker for nyc elections.</p>
+
+                <h3>what i'm building</h3>
+                <ul>
+                    <li>crypto alert web application with real-time price tracking (node.js, express.js)</li>
+                    <li>nyc neighborhoods data visualization tool using python and streamlit</li>
+                    <li>personal dashboard with api integrations and responsive design (php, javascript)</li>
+                    <li>automated data extraction systems for pdf/email processing</li>
+                </ul>
+
+                <p>i'm multilingual (bengali, english, hindi, urdu) and believe technology should be accessible to everyone. my experience ranges from c++ systems programming to full-stack web development, with a particular interest in data visualization and real-time applications.</p>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section fade-in" id="projects">
+                <h2>featured projects</h2>
+
+                <div class="card">
+                    <h4><a href="https://b-mozz-crypto-alerts-27e5033dde38.herokuapp.com/" target="_blank">crypto alert web application</a></h4>
+                    <p>comprehensive cryptocurrency tracking and alert system with real-time price updates, portfolio tracking, and customizable notifications. deployed on heroku with responsive design.</p>
+                    <div class="meta">live • node.js, express.js, api integration • <a href="https://github.com/b-mozz/crypto-alert-web.git" target="_blank">github</a></div>
+                </div>
+
+                <div class="card">
+                    <h4><a href="https://zip-code-explorer-nyc-b88c78013d7b.herokuapp.com/" target="_blank">nyc neighborhoods data visualization</a></h4>
+                    <p>interactive web application analyzing nyc neighborhoods by zip codes with comprehensive data visualization. processes 10,000+ entries using pandas and scikit-learn for geographical mapping.</p>
+                    <div class="meta">deployed • python, streamlit, folium, matplotlib • <a href="https://github.com/b-mozz/zip-code-explorer.git" target="_blank">github</a></div>
+                </div>
+
+                <div class="card">
+                    <h4><a href="https://bmozz.infy.uk/?i=2" target="_blank">personal dashboard</a></h4>
+                    <p>minimal single-file dashboard with real-time data integration including news, crypto prices, quotes, and multi-timezone clock. built for learning server-side programming.</p>
+                    <div class="meta">active • php, javascript, api integration • <a href="https://github.com/b-mozz/P-Dashboard" target="_blank">github</a></div>
+                </div>
+
+                <div class="card">
+                    <h4><a href="https://gist.github.com/b-mozz/sorting-objects-game" target="_blank">sorting objects game (c++)</a></h4>
+                    <p>interactive c++ project simulating sorting tasks with visual display using unicode symbols. developed as csci-135 final project incorporating object-oriented programming concepts.</p>
+                    <div class="meta">academic • c++, oop, memory management • <a href="https://gist.github.com/b-mozz/b17839766941be996aed0842f48027ed">read more</a></div>
+                </div>
+
+                <h3>current development</h3>
+                <ul>
+                    <li>automated data extraction systems for pdf/email processing</li>
+                    <li>notification system features for unadat platform</li>
+                    <li>restful apis for data retrieval and manipulation</li>
+                    <li>mysql database integration with data integrity</li>
+                </ul>
+            </section>
+
+            <!-- Work Experience Section -->
+            <section class="section fade-in" id="work">
+                <h2>work experience</h2>
+
+                <div class="card">
+                    <h4>software engineering intern</h4>
+                    <p>developing and maintaining web applications using php, javascript, and mysql at unadat. building automated data extraction systems for pdf/email processing, reducing data entry time by 90%. implementing notification system features and restful apis.</p>
+                    <div class="meta">summer 2025 • unadat, new york</div>
+                </div>
+
+                <div class="card">
+                    <h4>it technician - social science computing lab</h4>
+                    <p>maintaining lab equipment and troubleshooting software applications. supporting 300+ students and faculty with educational technology including stata, spss, excel, and research tools. managing web content updates with 100% accuracy.</p>
+                    <div class="meta">oct 2024 - present • cuny hunter college</div>
+                </div>
+
+                <div class="card">
+                    <h4>curriculum designer & mentor</h4>
+                    <p>designed calculus course for high-achieving students in bangladesh. collaborated with instructors on course materials and managed student performance tracking. mentored 28 students preparing for engineering entrance exams.</p>
+                    <div class="meta">jan - jun 2023 • the dynamic ninja, bangladesh</div>
+                </div>
+
+                <div class="card">
+                    <h4>interpreter poll worker</h4>
+                    <p>registered to assist bengali-speaking voters during nyc elections. facilitating communication and ensuring seamless voting processes for community members who need language interpretation services.</p>
+                    <div class="meta">oct 2024 - present • new york city</div>
+                </div>
+
+                <h3>achievements & impact</h3>
+                <ul>
+                    <li>90% reduction in data entry time through automation systems</li>
+                    <li>supporting 300+ students and faculty with technology needs</li>
+                    <li>mentored 28 students for competitive engineering exams</li>
+                    <li>maintaining 100% accuracy in web content management</li>
+                    <li>serving multilingual community through interpretation services</li>
+                </ul>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="section fade-in" id="skills">
+                <h2>technical skills</h2>
+
+                <h3>programming languages</h3>
+                <div class="skills">
+                    <div class="skill">c</div>
+                    <div class="skill">c++</div>
+                    <div class="skill">python</div>
+                    <div class="skill">javascript</div>
+                    <div class="skill">php</div>
+                    <div class="skill">html/css</div>
+                </div>
+
+                <h3>frameworks & tools</h3>
+                <div class="skills">
+                    <div class="skill">node.js</div>
+                    <div class="skill">express.js</div>
+                    <div class="skill">streamlit</div>
+                    <div class="skill">pandas</div>
+                    <div class="skill">matplotlib</div>
+                    <div class="skill">folium</div>
+                    <div class="skill">scikit-learn</div>
+                    <div class="skill">mysql</div>
+                    <div class="skill">git</div>
+                    <div class="skill">heroku</div>
+                </div>
+
+                <h3>specializations</h3>
+                <ul>
+                    <li><code>data analysis</code> - stata, spss, excel, pandas</li>
+                    <li><code>web development</code> - full-stack applications, api integration</li>
+                    <li><code>real-time systems</code> - live data feeds, notifications</li>
+                    <li><code>automation</code> - pdf/email processing, data extraction</li>
+                    <li><code>data visualization</code> - interactive maps, charts, dashboards</li>
+                </ul>
+
+                <h3>languages</h3>
+                <div class="skills">
+                    <div class="skill">bengali (fluent)</div>
+                    <div class="skill">english (fluent)</div>
+                    <div class="skill">hindi (conversational)</div>
+                    <div class="skill">urdu (conversational)</div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section fade-in" id="contact">
+                <h2>get in touch</h2>
+
+                <p>let's connect! i'm always open to discussing technology, collaboration opportunities, or just having a conversation about computer science and software development.</p>
+
+                <div class="contact-grid">
+                    <a href="https://github.com/b-mozz" class="contact-card" target="_blank">
+                        <div class="contact-label">github</div>
+                        <div class="contact-value">github.com/b-mozz</div>
+                    </a>
+
+                    <a href="mailto:bimukti.mozzumdar56@myhunter.cuny.edu" class="contact-card">
+                        <div class="contact-label">email</div>
+                        <div class="contact-value">bimukti.mozzumdar56@myhunter.cuny.edu</div>
+                    </a>
+
+                    <a href="tel:+19342189593" class="contact-card">
+                        <div class="contact-label">phone</div>
+                        <div class="contact-value">+1 (934) 218-9593</div>
+                    </a>
+                </div>
+
+                <h3>availability</h3>
+                <p> anytime, anyday (unemployed final boss)</p>
+
+                <h3>let's talk about</h3>
+                <ul>
+                    <li>software engineering internships and opportunities</li>
+                    <li>data visualization and analysis projects</li>
+                    <li>web development and api integration</li>
+                    <li>computer science education and mentoring</li>
+                    <li>multilingual technology accessibility</li>
+                    <li>open source collaboration</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="footer fade-in">
+            <p>looks bare-bones, i actually prefer it that way</p>
+            <p>built with html, css, and minimal javascript</p>
+            <p>last updated: <span id="last-updated"></span></p>
+        </footer>
     </div>
 
     <script>
-       
+        // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
-            
-            createParticles();
-            
-            
-            const buttons = document.querySelectorAll('.nav-button');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', () => {
-                    playHoverSound();
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetSection = this.getAttribute('data-section');
+
+                    // Remove current class from all nav links
+                    navLinks.forEach(nav => nav.classList.remove('current'));
+
+                    // Hide all sections
+                    sections.forEach(section => section.classList.remove('active'));
+
+                    // Show target section and mark nav as current
+                    this.classList.add('current');
+                    document.getElementById(targetSection).classList.add('active');
                 });
             });
-            
-            
+
+            // Add fade-in animation to elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animationDelay = `${index * 0.1}s`;
+                }, 50);
+            });
+
+            // Set last updated date
+            const lastUpdated = document.getElementById('last-updated');
+            if (lastUpdated) {
+                const now = new Date();
+                const options = {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                };
+                lastUpdated.textContent = now.toLocaleDateString('en-US', options);
+            }
+
+            // Add vintage typewriter effect to name
             const nameElement = document.querySelector('.name');
             if (nameElement) {
-                const name = nameElement.textContent;
-                typeWriter(nameElement, name);
+                const originalText = nameElement.textContent;
+                nameElement.textContent = '';
+                let i = 0;
+
+                function typeWriter() {
+                    if (i < originalText.length) {
+                        nameElement.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                }
+
+                setTimeout(typeWriter, 500);
             }
         });
 
-    
-        function createParticles() {
-            const container = document.querySelector('body');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                
-                particle.style.cssText = `
-                    position: absolute;
-                    width: ${Math.random() * 5 + 1}px;
-                    height: ${Math.random() * 5 + 1}px;
-                    background-color: rgba(255, 255, 255, ${Math.random() * 0.3});
-                    top: ${Math.random() * 100}vh;
-                    left: ${Math.random() * 100}vw;
-                    border-radius: 50%;
-                    pointer-events: none;
-                    opacity: ${Math.random() * 0.5 + 0.3};
-                    animation: float ${Math.random() * 10 + 10}s linear infinite;
-                    animation-delay: -${Math.random() * 10}s;
-                    z-index: -1;
-                `;
-                
-                container.appendChild(particle);
-            }
+        // Add subtle cursor blink effect
+        function addCursorBlink() {
+            const statusDots = document.querySelectorAll('.status-dot');
+            statusDots.forEach(dot => {
+                setInterval(() => {
+                    dot.style.opacity = dot.style.opacity === '0.3' ? '1' : '0.3';
+                }, 1000);
+            });
         }
 
-        
-        function typeWriter(element, text, i = 0) {
-            if (i === 0) {
-                element.textContent = '';
-            }
-            
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(() => typeWriter(element, text, i), 100);
-            }
-        }
-
-       
-        function playHoverSound() {
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(1200, audioContext.currentTime);
-                oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.1);
-                
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                oscillator.start();
-                oscillator.stop(audioContext.currentTime + 0.2);
-            } catch (e) {
-                
-                console.log("Audio not supported");
-            }
-        }
+        setTimeout(addCursorBlink, 1000);
     </script>
 </body>
 </html>
