@@ -14,7 +14,7 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background: #c9d4c2;
+            background: #f0f5f3;
             color: #3a3a3a;
             line-height: 1.7;
             font-size: 14px;
@@ -38,8 +38,8 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 20% 80%, rgba(176, 137, 104, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(157, 123, 95, 0.06) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(72, 140, 130, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(230, 120, 60, 0.04) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -54,26 +54,26 @@
         h1 {
             font-size: 32px;
             margin-bottom: 8px;
-            color: #2d2520;
+            color: #1f3a38;
         }
 
         h2 {
             font-size: 20px;
             margin: 40px 0 16px 0;
-            color: #4a3f38;
-            border-bottom: 1px solid #b0bda9;
+            color: #2a4a47;
+            border-bottom: 1px solid #c0d8d3;
             padding-bottom: 8px;
         }
 
         h3 {
             font-size: 16px;
             margin: 24px 0 12px 0;
-            color: #3d342f;
+            color: #2a4a47;
         }
 
         /* Header */
         .header {
-            border-bottom: 1px dotted #9d9485;
+            border-bottom: 1px dotted #7da69e;
             padding-bottom: 32px;
             margin-bottom: 40px;
             position: relative;
@@ -85,9 +85,9 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            background: #c9d4c2;
+            background: #f0f5f3;
             padding: 0 8px;
-            color: #8b8070;
+            color: #5a8c82;
             font-family: "JetBrains Mono", monospace;
         }
 
@@ -96,17 +96,24 @@
             margin-bottom: 6px;
             font-weight: 500;
             letter-spacing: -0.5px;
+            color: #e6783c;
+        }
+
+        .name::before {
+            content: "// ";
+            font-family: "JetBrains Mono", monospace;
+            margin-right: 4px;
         }
 
         .role {
-            color: #6b5d52;
+            color: #4a6b65;
             margin-bottom: 4px;
             font-size: 15px;
             font-style: italic;
         }
 
         .location {
-            color: #8b8070;
+            color: #7da69e;
             font-size: 13px;
             font-family: "JetBrains Mono", monospace;
             letter-spacing: 0.5px;
@@ -127,12 +134,12 @@
         }
 
         .nav a {
-            color: #6b5d52;
+            color: #4a6b65;
             text-decoration: none;
             padding: 6px 16px;
             position: relative;
             transition: all 0.3s ease;
-            border-right: 1px solid #b0bda9;
+            border-right: 1px solid #c0d8d3;
         }
 
         .nav a:last-child {
@@ -140,11 +147,11 @@
         }
 
         .nav a:hover {
-            color: #b08968;
+            color: #e6783c;
         }
 
         .nav a.current {
-            color: #9d7b5f;
+            color: #e6783c;
             font-weight: 500;
         }
 
@@ -154,7 +161,7 @@
             top: -2px;
             right: 4px;
             font-size: 10px;
-            color: #8b8070;
+            color: #d9663a;
         }
 
         /* Content sections */
@@ -170,7 +177,7 @@
         /* Paragraphs */
         p {
             margin-bottom: 16px;
-            color: #4a3f38;
+            color: #2a4a47;
         }
 
         /* Lists */
@@ -181,47 +188,47 @@
 
         li {
             margin-bottom: 6px;
-            color: #4a3f38;
+            color: #2a4a47;
         }
 
         /* Links */
         a {
-            color: #b08968;
+            color: #e6783c;
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: all 0.2s ease;
         }
 
         a:hover {
-            color: #9d7b5f;
-            border-bottom-color: rgba(176, 137, 104, 0.6);
+            color: #d9663a;
+            border-bottom-color: rgba(230, 120, 60, 0.6);
         }
 
         /* Code styling */
         code, pre {
             font-family: "JetBrains Mono", monospace;
-            background: #dfe6d9;
+            background: #e0ebe8;
             border-radius: 4px;
             font-size: 13px;
         }
 
         code {
             padding: 2px 6px;
-            color: #5a4d44;
+            color: #2a4a47;
         }
 
         pre {
             padding: 16px;
             margin: 16px 0;
             overflow-x: auto;
-            border: 1px solid #b0bda9;
+            border: 1px solid #c0d8d3;
         }
 
         /* Card styling */
         .card {
             background: none;
             border: none;
-            border-left: 2px solid #b0bda9;
+            border-left: 2px solid #c0d8d3;
             padding: 16px 0 16px 20px;
             margin-bottom: 24px;
             position: relative;
@@ -232,46 +239,46 @@
             font-family: "JetBrains Mono", monospace;
             font-size: 14px;
             margin-bottom: 6px;
-            color: #4a3f38;
+            color: #2a4a47;
             font-weight: 500;
         }
 
         .card h4 a {
-            color: #b08968;
+            color: #e6783c;
             text-decoration: none;
-            border-bottom: 1px solid rgba(176, 137, 104, 0.4);
+            border-bottom: 1px solid rgba(230, 120, 60, 0.4);
             transition: all 0.2s ease;
         }
 
         .card h4 a:hover {
-            color: #9d7b5f;
-            border-bottom-color: rgba(176, 137, 104, 0.7);
+            color: #d9663a;
+            border-bottom-color: rgba(230, 120, 60, 0.7);
         }
 
         .card .meta a {
-            color: #9d7b5f;
+            color: #5a8c82;
             text-decoration: none;
-            border-bottom: 1px solid rgba(157, 123, 95, 0.5);
+            border-bottom: 1px solid rgba(90, 140, 130, 0.5);
             font-size: 10px;
             transition: all 0.2s ease;
             font-weight: 500;
         }
 
         .card .meta a:hover {
-            color: #b08968;
-            border-bottom-color: rgba(176, 137, 104, 0.8);
+            color: #488c82;
+            border-bottom-color: rgba(72, 140, 130, 0.8);
         }
 
         .card p {
             margin-bottom: 6px;
             font-size: 13px;
-            color: #5a4d44;
+            color: #3a5a56;
             line-height: 1.6;
         }
 
         .card .meta {
             font-size: 11px;
-            color: #8b8070;
+            color: #7da69e;
             font-family: "JetBrains Mono", monospace;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -282,30 +289,30 @@
         .status {
             display: inline-block;
             background: none;
-            border: 1px dashed #9d9485;
+            border: 1px dashed #7da69e;
             padding: 8px 12px;
             margin: 20px 0;
             font-size: 12px;
             font-family: "JetBrains Mono", monospace;
-            color: #6b5d52;
+            color: #4a6b65;
             position: relative;
         }
 
         .status::before {
             content: "[";
-            color: #8b8070;
+            color: #7da69e;
         }
 
         .status::after {
             content: "]";
-            color: #8b8070;
+            color: #7da69e;
         }
 
         .status-dot {
             display: inline-block;
             width: 6px;
             height: 6px;
-            background: #b08968;
+            background: #e6783c;
             margin-right: 8px;
             animation: blink 2s ease-in-out infinite;
         }
@@ -330,17 +337,17 @@
             padding: 0;
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
-            color: #6b5d52;
+            color: #4a6b65;
             position: relative;
         }
 
         .skill::before {
             content: "• ";
-            color: #9d9485;
+            color: #7da69e;
         }
 
         .skill:hover {
-            color: #b08968;
+            color: #e6783c;
         }
 
         .skill:not(:last-child)::after {
@@ -355,8 +362,8 @@
         }
 
         .contact-card {
-            background: rgba(223, 230, 217, 0.6);
-            border: 1px solid #b0bda9;
+            background: rgba(224, 235, 232, 0.6);
+            border: 1px solid #c0d8d3;
             border-radius: 8px;
             padding: 16px;
             transition: all 0.2s ease;
@@ -366,16 +373,16 @@
         }
 
         .contact-card:hover {
-            background: rgba(223, 230, 217, 0.9);
+            background: rgba(224, 235, 232, 0.9);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(107, 93, 82, 0.15);
-            border-bottom: 1px solid rgba(176, 137, 104, 0.4);
+            box-shadow: 0 4px 12px rgba(72, 140, 130, 0.15);
+            border-bottom: 1px solid rgba(230, 120, 60, 0.4);
         }
 
         .contact-label {
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
-            color: #6b5d52;
+            color: #4a6b65;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
@@ -383,16 +390,16 @@
 
         .contact-value {
             font-size: 15px;
-            color: #3d342f;
+            color: #2a4a47;
         }
 
         /* Footer */
         .footer {
-            border-top: 1px dotted #9d9485;
+            border-top: 1px dotted #7da69e;
             padding-top: 32px;
             margin-top: 64px;
             text-align: center;
-            color: #8b8070;
+            color: #7da69e;
             font-size: 11px;
             font-family: "JetBrains Mono", monospace;
             position: relative;
@@ -404,9 +411,9 @@
             top: -6px;
             left: 50%;
             transform: translateX(-50%);
-            background: #c9d4c2;
+            background: #f0f5f3;
             padding: 0 8px;
-            color: #9d9485;
+            color: #7da69e;
         }
 
         .footer p {
@@ -429,16 +436,28 @@
         /* Additional indie touches */
         h2::before {
             content: "// ";
-            color: #9d9485;
+            color: #7da69e;
             font-family: "JetBrains Mono", monospace;
             font-size: 14px;
         }
 
         h3::before {
             content: "> ";
-            color: #b0bda9;
+            color: #c0d8d3;
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
+        }
+
+        /* ASCII art dividers */
+        .ascii-divider {
+            font-family: "JetBrains Mono", monospace;
+            color: #e6783c;
+            text-align: center;
+            margin: 32px 0;
+            font-size: 11px;
+            line-height: 1.2;
+            user-select: none;
+            opacity: 0.7;
         }
 
         /* Vintage cursor */
@@ -455,7 +474,7 @@
             position: fixed;
             width: 4px;
             height: 4px;
-            background: #b08968;
+            background: #e6783c;
             border-radius: 50%;
             pointer-events: none;
             opacity: 0;
@@ -496,7 +515,7 @@
 
             .nav a {
                 border-right: none;
-                border-bottom: 1px solid #b0bda9;
+                border-bottom: 1px solid #c0d8d3;
                 padding: 8px 0;
             }
 
@@ -554,6 +573,10 @@
                 <p>my focus right now is understanding how modern storage systems work and building towards aws s3 integration. next up is a text editor project using the in-memory storage patterns i've been learning.</p>
             </section>
 
+            <div class="ascii-divider">
+                ⋆｡°✩
+            </div>
+
             <!-- Projects Section -->
             <section class="section fade-in" id="projects">
                 <h2>recent work</h2>
@@ -589,6 +612,10 @@
                     <li>automated data extraction for work projects</li>
                 </ul>
             </section>
+
+            <div class="ascii-divider">
+                ⋆｡°✩
+            </div>
 
             <!-- Work Experience Section -->
             <section class="section fade-in" id="work">
@@ -628,6 +655,10 @@
                 </ul>
             </section>
 
+            <div class="ascii-divider">
+                ⋆｡°✩
+            </div>
+
             <!-- Skills Section -->
             <section class="section fade-in" id="skills">
                 <h2>tech stack</h2>
@@ -660,6 +691,10 @@
                     <div class="skill">streamlit</div>
                 </div>
             </section>
+
+            <div class="ascii-divider">
+                ⋆｡°✩
+            </div>
 
             <!-- Contact Section -->
             <section class="section fade-in" id="contact">
@@ -783,7 +818,7 @@
 
         // Subtle cursor trail effect
         let lastTrailTime = 0;
-        const trailDelay = 20; // milliseconds between trail dots
+        const trailDelay = 5; // milliseconds between trail dots
 
         document.addEventListener('mousemove', function(e) {
             const currentTime = Date.now();
