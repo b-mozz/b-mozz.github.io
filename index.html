@@ -14,7 +14,7 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background: #f5f3ed;
+            background: #c9d4c2;
             color: #3a3a3a;
             line-height: 1.7;
             font-size: 14px;
@@ -38,8 +38,8 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 20% 80%, rgba(200, 180, 150, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(180, 160, 140, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(176, 137, 104, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(157, 123, 95, 0.06) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -54,26 +54,26 @@
         h1 {
             font-size: 32px;
             margin-bottom: 8px;
-            color: #1a1a1a;
+            color: #2d2520;
         }
 
         h2 {
             font-size: 20px;
             margin: 40px 0 16px 0;
-            color: #444;
-            border-bottom: 1px solid #e5e5e5;
+            color: #4a3f38;
+            border-bottom: 1px solid #b0bda9;
             padding-bottom: 8px;
         }
 
         h3 {
             font-size: 16px;
             margin: 24px 0 12px 0;
-            color: #333;
+            color: #3d342f;
         }
 
         /* Header */
         .header {
-            border-bottom: 1px dotted #bbb;
+            border-bottom: 1px dotted #9d9485;
             padding-bottom: 32px;
             margin-bottom: 40px;
             position: relative;
@@ -85,9 +85,9 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            background: #f5f3ed;
+            background: #c9d4c2;
             padding: 0 8px;
-            color: #999;
+            color: #8b8070;
             font-family: "JetBrains Mono", monospace;
         }
 
@@ -99,14 +99,14 @@
         }
 
         .role {
-            color: #777;
+            color: #6b5d52;
             margin-bottom: 4px;
             font-size: 15px;
             font-style: italic;
         }
 
         .location {
-            color: #999;
+            color: #8b8070;
             font-size: 13px;
             font-family: "JetBrains Mono", monospace;
             letter-spacing: 0.5px;
@@ -127,12 +127,12 @@
         }
 
         .nav a {
-            color: #888;
+            color: #6b5d52;
             text-decoration: none;
             padding: 6px 16px;
             position: relative;
             transition: all 0.3s ease;
-            border-right: 1px solid #ddd;
+            border-right: 1px solid #b0bda9;
         }
 
         .nav a:last-child {
@@ -140,11 +140,11 @@
         }
 
         .nav a:hover {
-            color: #555;
+            color: #b08968;
         }
 
         .nav a.current {
-            color: #333;
+            color: #9d7b5f;
             font-weight: 500;
         }
 
@@ -154,7 +154,7 @@
             top: -2px;
             right: 4px;
             font-size: 10px;
-            color: #999;
+            color: #8b8070;
         }
 
         /* Content sections */
@@ -170,7 +170,7 @@
         /* Paragraphs */
         p {
             margin-bottom: 16px;
-            color: #444;
+            color: #4a3f38;
         }
 
         /* Lists */
@@ -181,47 +181,47 @@
 
         li {
             margin-bottom: 6px;
-            color: #444;
+            color: #4a3f38;
         }
 
         /* Links */
         a {
-            color: #5a7a9b;
+            color: #b08968;
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: all 0.2s ease;
         }
 
         a:hover {
-            color: #4a6a8b;
-            border-bottom-color: rgba(90, 122, 155, 0.6);
+            color: #9d7b5f;
+            border-bottom-color: rgba(176, 137, 104, 0.6);
         }
 
         /* Code styling */
         code, pre {
             font-family: "JetBrains Mono", monospace;
-            background: #f5f5f5;
+            background: #dfe6d9;
             border-radius: 4px;
             font-size: 13px;
         }
 
         code {
             padding: 2px 6px;
-            color: #666;
+            color: #5a4d44;
         }
 
         pre {
             padding: 16px;
             margin: 16px 0;
             overflow-x: auto;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #b0bda9;
         }
 
         /* Card styling */
         .card {
             background: none;
             border: none;
-            border-left: 2px solid #ddd;
+            border-left: 2px solid #b0bda9;
             padding: 16px 0 16px 20px;
             margin-bottom: 24px;
             position: relative;
@@ -232,46 +232,46 @@
             font-family: "JetBrains Mono", monospace;
             font-size: 14px;
             margin-bottom: 6px;
-            color: #444;
+            color: #4a3f38;
             font-weight: 500;
         }
 
         .card h4 a {
-            color: #5a7a9b;
+            color: #b08968;
             text-decoration: none;
-            border-bottom: 1px solid rgba(90, 122, 155, 0.4);
+            border-bottom: 1px solid rgba(176, 137, 104, 0.4);
             transition: all 0.2s ease;
         }
 
         .card h4 a:hover {
-            color: #4a6a8b;
-            border-bottom-color: rgba(90, 122, 155, 0.7);
+            color: #9d7b5f;
+            border-bottom-color: rgba(176, 137, 104, 0.7);
         }
 
         .card .meta a {
-            color: #7a8fa8;
+            color: #9d7b5f;
             text-decoration: none;
-            border-bottom: 1px solid rgba(122, 143, 168, 0.5);
+            border-bottom: 1px solid rgba(157, 123, 95, 0.5);
             font-size: 10px;
             transition: all 0.2s ease;
             font-weight: 500;
         }
 
         .card .meta a:hover {
-            color: #5a7a9b;
-            border-bottom-color: rgba(90, 122, 155, 0.8);
+            color: #b08968;
+            border-bottom-color: rgba(176, 137, 104, 0.8);
         }
 
         .card p {
             margin-bottom: 6px;
             font-size: 13px;
-            color: #666;
+            color: #5a4d44;
             line-height: 1.6;
         }
 
         .card .meta {
             font-size: 11px;
-            color: #999;
+            color: #8b8070;
             font-family: "JetBrains Mono", monospace;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -282,30 +282,30 @@
         .status {
             display: inline-block;
             background: none;
-            border: 1px dashed #ccc;
+            border: 1px dashed #9d9485;
             padding: 8px 12px;
             margin: 20px 0;
             font-size: 12px;
             font-family: "JetBrains Mono", monospace;
-            color: #777;
+            color: #6b5d52;
             position: relative;
         }
 
         .status::before {
             content: "[";
-            color: #999;
+            color: #8b8070;
         }
 
         .status::after {
             content: "]";
-            color: #999;
+            color: #8b8070;
         }
 
         .status-dot {
             display: inline-block;
             width: 6px;
             height: 6px;
-            background: #999;
+            background: #b08968;
             margin-right: 8px;
             animation: blink 2s ease-in-out infinite;
         }
@@ -330,17 +330,17 @@
             padding: 0;
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
-            color: #777;
+            color: #6b5d52;
             position: relative;
         }
 
         .skill::before {
             content: "• ";
-            color: #bbb;
+            color: #9d9485;
         }
 
         .skill:hover {
-            color: #555;
+            color: #b08968;
         }
 
         .skill:not(:last-child)::after {
@@ -355,8 +355,8 @@
         }
 
         .contact-card {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid #e0e0e0;
+            background: rgba(223, 230, 217, 0.6);
+            border: 1px solid #b0bda9;
             border-radius: 8px;
             padding: 16px;
             transition: all 0.2s ease;
@@ -366,16 +366,16 @@
         }
 
         .contact-card:hover {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(223, 230, 217, 0.9);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(107, 123, 141, 0.2);
+            box-shadow: 0 4px 12px rgba(107, 93, 82, 0.15);
+            border-bottom: 1px solid rgba(176, 137, 104, 0.4);
         }
 
         .contact-label {
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
-            color: #888;
+            color: #6b5d52;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
@@ -383,16 +383,16 @@
 
         .contact-value {
             font-size: 15px;
-            color: #333;
+            color: #3d342f;
         }
 
         /* Footer */
         .footer {
-            border-top: 1px dotted #ccc;
+            border-top: 1px dotted #9d9485;
             padding-top: 32px;
             margin-top: 64px;
             text-align: center;
-            color: #999;
+            color: #8b8070;
             font-size: 11px;
             font-family: "JetBrains Mono", monospace;
             position: relative;
@@ -404,9 +404,9 @@
             top: -6px;
             left: 50%;
             transform: translateX(-50%);
-            background: #f5f3ed;
+            background: #c9d4c2;
             padding: 0 8px;
-            color: #ccc;
+            color: #9d9485;
         }
 
         .footer p {
@@ -429,14 +429,14 @@
         /* Additional indie touches */
         h2::before {
             content: "// ";
-            color: #bbb;
+            color: #9d9485;
             font-family: "JetBrains Mono", monospace;
             font-size: 14px;
         }
 
         h3::before {
             content: "> ";
-            color: #ddd;
+            color: #b0bda9;
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
         }
@@ -468,7 +468,7 @@
 
             .nav a {
                 border-right: none;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid #b0bda9;
                 padding: 8px 0;
             }
 
