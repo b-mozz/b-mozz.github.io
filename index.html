@@ -6,6 +6,34 @@
     <title>bimukti mozzumdar</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Light theme (Shakespeare) */
+            --bg-primary: #F9F9DF;
+            --text-primary: #222222;
+            --text-secondary: #696969;
+            --accent-primary: #5E2612;
+            --border-color: #696969;
+            --code-bg: rgba(105, 105, 105, 0.1);
+            --card-bg: rgba(105, 105, 105, 0.05);
+            --card-hover-bg: rgba(105, 105, 105, 0.1);
+            --gradient-1: rgba(94, 38, 18, 0.03);
+            --gradient-2: rgba(105, 105, 105, 0.02);
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme */
+            --bg-primary: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-primary: #d4926f;
+            --border-color: #4a4a4a;
+            --code-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-hover-bg: rgba(255, 255, 255, 0.08);
+            --gradient-1: rgba(212, 146, 111, 0.05);
+            --gradient-2: rgba(160, 160, 160, 0.03);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,13 +42,14 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background: #F9F9DF;
-            color: #222222;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.7;
             font-size: 14px;
             margin: 0;
             font-weight: 300;
             text-rendering: optimizeLegibility;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -38,10 +67,11 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 20% 80%, rgba(94, 38, 18, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(105, 105, 105, 0.02) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, var(--gradient-1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--gradient-2) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
+            transition: background-image 0.3s ease;
         }
 
         /* Typography */
@@ -54,26 +84,26 @@
         h1 {
             font-size: 32px;
             margin-bottom: 8px;
-            color: #222222;
+            color: var(--text-primary);
         }
 
         h2 {
             font-size: 20px;
             margin: 40px 0 16px 0;
-            color: #222222;
-            border-bottom: 1px solid #696969;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 8px;
         }
 
         h3 {
             font-size: 16px;
             margin: 24px 0 12px 0;
-            color: #222222;
+            color: var(--text-primary);
         }
 
         /* Header */
         .header {
-            border-bottom: 1px dotted #696969;
+            border-bottom: 1px dotted var(--border-color);
             padding-bottom: 32px;
             margin-bottom: 40px;
             position: relative;
@@ -85,9 +115,9 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            background: #F9F9DF;
+            background: var(--bg-primary);
             padding: 0 8px;
-            color: #696969;
+            color: var(--text-secondary);
             font-family: "JetBrains Mono", monospace;
         }
 
@@ -96,7 +126,7 @@
             margin-bottom: 6px;
             font-weight: 500;
             letter-spacing: -0.5px;
-            color: #5E2612;
+            color: var(--accent-primary);
         }
 
         .name::before {
@@ -106,14 +136,14 @@
         }
 
         .role {
-            color: #696969;
+            color: var(--text-secondary);
             margin-bottom: 4px;
             font-size: 15px;
             font-style: italic;
         }
 
         .location {
-            color: #696969;
+            color: var(--text-secondary);
             font-size: 13px;
             font-family: "JetBrains Mono", monospace;
             letter-spacing: 0.5px;
@@ -134,12 +164,12 @@
         }
 
         .nav a {
-            color: #696969;
+            color: var(--text-secondary);
             text-decoration: none;
             padding: 6px 16px;
             position: relative;
             transition: all 0.3s ease;
-            border-right: 1px solid #696969;
+            border-right: 1px solid var(--border-color);
         }
 
         .nav a:last-child {
@@ -147,11 +177,11 @@
         }
 
         .nav a:hover {
-            color: #5E2612;
+            color: var(--accent-primary);
         }
 
         .nav a.current {
-            color: #5E2612;
+            color: var(--accent-primary);
             font-weight: 500;
         }
 
@@ -161,7 +191,7 @@
             top: -2px;
             right: 4px;
             font-size: 10px;
-            color: #5E2612;
+            color: var(--accent-primary);
         }
 
         /* Content sections */
@@ -177,7 +207,7 @@
         /* Paragraphs */
         p {
             margin-bottom: 16px;
-            color: #222222;
+            color: var(--text-primary);
         }
 
         /* Lists */
@@ -188,47 +218,47 @@
 
         li {
             margin-bottom: 6px;
-            color: #222222;
+            color: var(--text-primary);
         }
 
         /* Links */
         a {
-            color: #696969;
+            color: var(--text-secondary);
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: all 0.2s ease;
         }
 
         a:hover {
-            color: #5E2612;
-            border-bottom-color: rgba(94, 38, 18, 0.6);
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
         }
 
         /* Code styling */
         code, pre {
             font-family: "JetBrains Mono", monospace;
-            background: rgba(105, 105, 105, 0.1);
+            background: var(--code-bg);
             border-radius: 4px;
             font-size: 13px;
         }
 
         code {
             padding: 2px 6px;
-            color: #222222;
+            color: var(--text-primary);
         }
 
         pre {
             padding: 16px;
             margin: 16px 0;
             overflow-x: auto;
-            border: 1px solid #696969;
+            border: 1px solid var(--border-color);
         }
 
         /* Card styling */
         .card {
             background: none;
             border: none;
-            border-left: 2px solid #696969;
+            border-left: 2px solid var(--border-color);
             padding: 16px 0 16px 20px;
             margin-bottom: 24px;
             position: relative;
@@ -239,46 +269,46 @@
             font-family: "JetBrains Mono", monospace;
             font-size: 14px;
             margin-bottom: 6px;
-            color: #222222;
+            color: var(--text-primary);
             font-weight: 500;
         }
 
         .card h4 a {
-            color: #696969;
+            color: var(--text-secondary);
             text-decoration: none;
-            border-bottom: 1px solid rgba(105, 105, 105, 0.4);
+            border-bottom: 1px solid var(--text-secondary);
             transition: all 0.2s ease;
         }
 
         .card h4 a:hover {
-            color: #5E2612;
-            border-bottom-color: rgba(94, 38, 18, 0.7);
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
         }
 
         .card .meta a {
-            color: #696969;
+            color: var(--text-secondary);
             text-decoration: none;
-            border-bottom: 1px solid rgba(105, 105, 105, 0.5);
+            border-bottom: 1px solid var(--text-secondary);
             font-size: 10px;
             transition: all 0.2s ease;
             font-weight: 500;
         }
 
         .card .meta a:hover {
-            color: #5E2612;
-            border-bottom-color: rgba(94, 38, 18, 0.8);
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
         }
 
         .card p {
             margin-bottom: 6px;
             font-size: 13px;
-            color: #222222;
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
         .card .meta {
             font-size: 11px;
-            color: #696969;
+            color: var(--text-secondary);
             font-family: "JetBrains Mono", monospace;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -289,30 +319,30 @@
         .status {
             display: inline-block;
             background: none;
-            border: 1px dashed #696969;
+            border: 1px dashed var(--border-color);
             padding: 8px 12px;
             margin: 20px 0;
             font-size: 12px;
             font-family: "JetBrains Mono", monospace;
-            color: #696969;
+            color: var(--text-secondary);
             position: relative;
         }
 
         .status::before {
             content: "[";
-            color: #696969;
+            color: var(--text-secondary);
         }
 
         .status::after {
             content: "]";
-            color: #696969;
+            color: var(--text-secondary);
         }
 
         .status-dot {
             display: inline-block;
             width: 6px;
             height: 6px;
-            background: #5E2612;
+            background: var(--accent-primary);
             margin-right: 8px;
             animation: blink 2s ease-in-out infinite;
         }
@@ -337,17 +367,17 @@
             padding: 0;
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
-            color: #696969;
+            color: var(--text-secondary);
             position: relative;
         }
 
         .skill::before {
             content: "• ";
-            color: #696969;
+            color: var(--text-secondary);
         }
 
         .skill:hover {
-            color: #5E2612;
+            color: var(--accent-primary);
         }
 
         .skill:not(:last-child)::after {
@@ -362,8 +392,8 @@
         }
 
         .contact-card {
-            background: rgba(105, 105, 105, 0.05);
-            border: 1px solid #696969;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 16px;
             transition: all 0.2s ease;
@@ -373,16 +403,16 @@
         }
 
         .contact-card:hover {
-            background: rgba(105, 105, 105, 0.1);
+            background: var(--card-hover-bg);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(94, 38, 18, 0.15);
-            border-bottom: 1px solid rgba(94, 38, 18, 0.4);
+            box-shadow: 0 4px 12px var(--gradient-1);
+            border-bottom: 1px solid var(--accent-primary);
         }
 
         .contact-label {
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
-            color: #696969;
+            color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
@@ -390,16 +420,16 @@
 
         .contact-value {
             font-size: 15px;
-            color: #222222;
+            color: var(--text-primary);
         }
 
         /* Footer */
         .footer {
-            border-top: 1px dotted #696969;
+            border-top: 1px dotted var(--border-color);
             padding-top: 32px;
             margin-top: 64px;
             text-align: center;
-            color: #696969;
+            color: var(--text-secondary);
             font-size: 11px;
             font-family: "JetBrains Mono", monospace;
             position: relative;
@@ -411,9 +441,9 @@
             top: -6px;
             left: 50%;
             transform: translateX(-50%);
-            background: #F9F9DF;
+            background: var(--bg-primary);
             padding: 0 8px;
-            color: #696969;
+            color: var(--text-secondary);
         }
 
         .footer p {
@@ -436,14 +466,14 @@
         /* Additional indie touches */
         h2::before {
             content: "// ";
-            color: #696969;
+            color: var(--text-secondary);
             font-family: "JetBrains Mono", monospace;
             font-size: 14px;
         }
 
         h3::before {
             content: "> ";
-            color: #696969;
+            color: var(--text-secondary);
             font-family: "JetBrains Mono", monospace;
             font-size: 12px;
         }
@@ -451,7 +481,7 @@
         /* ASCII art dividers */
         .ascii-divider {
             font-family: "JetBrains Mono", monospace;
-            color: #5E2612;
+            color: var(--accent-primary);
             text-align: center;
             margin: 32px 0;
             font-size: 11px;
@@ -474,7 +504,7 @@
             position: fixed;
             width: 4px;
             height: 4px;
-            background: #5E2612;
+            background: var(--accent-primary);
             border-radius: 50%;
             pointer-events: none;
             opacity: 0;
@@ -515,7 +545,7 @@
 
             .nav a {
                 border-right: none;
-                border-bottom: 1px solid #696969;
+                border-bottom: 1px solid var(--border-color);
                 padding: 8px 0;
             }
 
@@ -528,9 +558,62 @@
             }
         }
 
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 50%;
+            transform: translateX(380px);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 20px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--card-hover-bg);
+            transform: translateX(380px) rotate(20deg);
+        }
+
+        .theme-toggle:active {
+            transform: translateX(380px) rotate(20deg) scale(0.95);
+        }
+
+        @media (max-width: 640px) {
+            .theme-toggle {
+                top: 16px;
+                right: 16px;
+                transform: none;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .theme-toggle:hover {
+                transform: rotate(20deg);
+            }
+
+            .theme-toggle:active {
+                transform: rotate(20deg) scale(0.95);
+            }
+        }
+
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span id="theme-icon">🌙</span>
+    </button>
+
     <div class="container">
         <header class="header fade-in">
             <h1 class="name">bimukti mozzumdar</h1>
@@ -742,6 +825,31 @@
     </div>
 
     <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // Update theme icon based on current theme
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
         // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
