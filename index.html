@@ -566,25 +566,29 @@
             transform: translateX(380px);
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
+            border-radius: 20px;
+            padding: 8px 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 1000;
-            font-size: 20px;
+            font-size: 11px;
+            font-family: "JetBrains Mono", monospace;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .theme-toggle:hover {
             background: var(--card-hover-bg);
-            transform: translateX(380px) rotate(20deg);
+            transform: translateX(380px);
+            border-color: var(--accent-primary);
         }
 
         .theme-toggle:active {
-            transform: translateX(380px) rotate(20deg) scale(0.95);
+            transform: translateX(380px) scale(0.95);
         }
 
         @media (max-width: 640px) {
@@ -592,17 +596,17 @@
                 top: 16px;
                 right: 16px;
                 transform: none;
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
+                padding: 8px 12px;
+                font-size: 10px;
             }
 
             .theme-toggle:hover {
-                transform: rotate(20deg);
+                transform: none;
+                border-color: var(--accent-primary);
             }
 
             .theme-toggle:active {
-                transform: rotate(20deg) scale(0.95);
+                transform: scale(0.95);
             }
         }
 
@@ -611,7 +615,7 @@
 <body>
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-        <span id="theme-icon">🌙</span>
+        <span id="theme-icon">dark</span>
     </button>
 
     <div class="container">
@@ -632,7 +636,7 @@
         <main>
             <!-- About Section -->
             <section class="section active fade-in" id="about">
-                <p>cs student at hunter college working on projects that solve actual problems. currently learning go and exploring cloud storage patterns through hands-on development.</p>
+                <p>cs student at hunter college working on projects that solve actual problems. currently working on my own AirDrop clone that works cross-platform.</p>
 
                 <div class="status">
                     <span class="status-dot"></span>
@@ -643,17 +647,17 @@
                     it tech at hunter college (oct 2024 - present)
                 </div>
 
-                <p>i work as an it tech supporting students and faculty with research tools. also do bengali interpretation for nyc elections. speak multiple languages and think technology should work for everyone.</p>
+                <p>i work as an it tech supporting students and faculty with research tools. speak multiple languages and think technology should be accessible to everyone.</p>
 
                 <h3>recent projects</h3>
                 <ul>
-                    <li>cloud file manager in go - learning file chunking and storage architecture</li>
+                    <li>cloud file manager - learning file chunking and in-memory storage</li>
                     <li>crypto price tracker with real-time alerts</li>
                     <li>nyc neighborhoods data visualization</li>
                     <li>personal dashboard with api integrations</li>
                 </ul>
 
-                <p>my focus right now is understanding how modern storage systems work and building towards aws s3 integration. next up is a text editor project using the in-memory storage patterns i've been learning.</p>
+                <p>my focus right now is understanding how modern storage systems work and building towards aws s3 integration. next up is an AirDrop clone and "file clipboard" project using the in-memory storage patterns i've been learning.</p>
             </section>
 
             <div class="ascii-divider">
@@ -667,7 +671,7 @@
                 <div class="card">
                     <h4><a href="https://github.com/b-mozz/cloud-filemanager" target="_blank">cloud file manager</a></h4>
                     <p>go web app exploring file storage patterns and chunking techniques. dual storage system with local filesystem and in-memory caching. dockerized for deployment. next step: aws s3 integration.</p>
-                    <div class="meta">latest • go, vanilla js, docker • <a href="https://github.com/b-mozz/cloud-filemanager" target="_blank">github</a></div>
+                    <div class="meta">latest • go, vanilla js • <a href="https://github.com/b-mozz/cloud-filemanager" target="_blank">github</a></div>
                 </div>
 
                 <div class="card">
@@ -690,6 +694,7 @@
 
                 <h3>next up</h3>
                 <ul>
+                    <li>AirDrop clone for cross-platform file sharing</li>
                     <li>text editor using in-memory storage patterns from file manager</li>
                     <li>aws s3 backend integration with file chunking</li>
                     <li>automated data extraction for work projects</li>
@@ -706,13 +711,13 @@
 
                 <div class="card">
                     <h4>software engineering intern</h4>
-                    <p>developing and maintaining web applications using php, javascript, and mysql at unadat. building automated data extraction systems for pdf/email processing, reducing data entry time by 90%. implementing notification system features and restful apis.</p>
+                    <p>developing and maintaining web applications using php, javascript, and mysql at unadat. building automated data extraction systems for pdf/email processing, reducing data entry time for the company. implementing notification system features and restful apis.</p>
                     <div class="meta">summer 2025 • unadat, new york</div>
                 </div>
 
                 <div class="card">
                     <h4>it technician - social science computing lab</h4>
-                    <p>maintaining lab equipment and troubleshooting software applications. supporting 300+ students and faculty with educational technology including stata, spss, excel, and research tools. managing web content updates with 100% accuracy.</p>
+                    <p>maintaining lab equipment and troubleshooting software applications. supporting 300+ students and faculty with educational technology including stata, spss, excel, and research tools. maintaining lab website up to date.</p>
                     <div class="meta">oct 2024 - present • cuny hunter college</div>
                 </div>
 
@@ -730,10 +735,9 @@
 
                 <h3>achievements & impact</h3>
                 <ul>
-                    <li>90% reduction in data entry time through automation systems</li>
+                    <li>reduction in data entry time through automation systems</li>
                     <li>supporting 300+ students and faculty with technology needs</li>
                     <li>mentored 28 students for competitive engineering exams</li>
-                    <li>maintaining 100% accuracy in web content management</li>
                     <li>serving multilingual community through interpretation services</li>
                 </ul>
             </section>
@@ -757,9 +761,8 @@
 
                 <h3>current focus</h3>
                 <ul>
-                    <li><code>go backend development</code> - web servers, storage systems</li>
+                    <li><code>go backend development</code> - web servers, storage systems, file sharing</li>
                     <li><code>cloud patterns</code> - file chunking, in-memory caching, aws s3</li>
-                    <li><code>containerization</code> - docker, deployment strategies</li>
                     <li><code>data visualization</code> - streamlit, matplotlib, interactive maps</li>
                     <li><code>real-time systems</code> - apis, live data feeds</li>
                 </ul>
@@ -803,7 +806,7 @@
                 </div>
 
                 <h3>availability</h3>
-                <p> anytime, anyday (unemployed final boss)</p>
+                <p>anytime, any day</p>
 
                 <h3>let's talk about</h3>
                 <ul>
@@ -847,7 +850,7 @@
 
         // Update theme icon based on current theme
         function updateThemeIcon(theme) {
-            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            themeIcon.textContent = theme === 'dark' ? 'light' : 'dark';
         }
 
         // Navigation functionality
