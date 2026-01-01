@@ -637,7 +637,7 @@
         <main>
             <!-- About Section -->
             <section class="section active fade-in" id="about">
-                <p>cs student at hunter college working on projects that solve actual problems. currently working on my own AirDrop clone that works cross-platform.</p>
+                <p>cs student at hunter college working on projects that solve actual problems. just finished building PeerDrop - a browser-based AirDrop clone that works across platforms.</p>
 
                 <div class="status">
                     <span class="status-dot"></span>
@@ -652,13 +652,13 @@
 
                 <h3>recent projects</h3>
                 <ul>
+                    <li>PeerDrop - browser-based AirDrop clone using WebRTC</li>
                     <li>cloud file manager - learning file chunking and in-memory storage</li>
                     <li>crypto price tracker with real-time alerts</li>
                     <li>nyc neighborhoods data visualization</li>
-                    <li>personal dashboard with api integrations</li>
                 </ul>
 
-                <p>my focus right now is understanding how modern storage systems work and building towards aws s3 integration. next up is an AirDrop clone and "file clipboard" project using the in-memory storage patterns i've been learning.</p>
+                <p>currently exploring peer-to-peer networking and WebRTC after building PeerDrop. learned a ton about WebSocket signaling and NAT traversal. next up is diving deeper into aws s3 integration and building a "file clipboard" project using the storage patterns i've been learning.</p>
             </section>
 
             <div class="ascii-divider">
@@ -670,9 +670,15 @@
                 <h2>recent work</h2>
 
                 <div class="card">
+                    <h4><a href="https://github.com/b-mozz/p2p-fileshare" target="_blank">PeerDrop</a></h4>
+                    <p>browser-based cross-platform AirDrop. built this for the lab i work at - we support 300+ students weekly who need to share JASP/Excel files with tutors while working through problems. uploading to cloud storage every time was inefficient and slow. files transfer directly between browsers using WebRTC - no cloud needed. built a go signaling server with WebSocket for real-time peer connections. the server never touches your files, just helps browsers find each other. works on same network with mDNS (.local) support. hopefully makes file sharing easier for students and tutors. honestly learned more from this than any course - <a href="https://programmingpercy.tech/blog/mastering-websockets-with-go/" target="_blank" style="color: var(--accent-primary);">this article</a> on WebSockets was super helpful for understanding the signaling part.</p>
+                    <div class="meta">latest • go, webrtc, websocket, vanilla js • <a href="https://github.com/b-mozz/p2p-fileshare" target="_blank">github</a></div>
+                </div>
+
+                <div class="card">
                     <h4><a href="https://github.com/b-mozz/cloud-filemanager" target="_blank">cloud file manager</a></h4>
                     <p>go web app exploring file storage patterns and chunking techniques. dual storage system with local filesystem and in-memory caching. dockerized for deployment. next step: aws s3 integration.</p>
-                    <div class="meta">latest • go, vanilla js • <a href="https://github.com/b-mozz/cloud-filemanager" target="_blank">github</a></div>
+                    <div class="meta">go, vanilla js • <a href="https://github.com/b-mozz/cloud-filemanager" target="_blank">github</a></div>
                 </div>
 
                 <div class="card">
@@ -695,7 +701,7 @@
 
                 <h3>next up</h3>
                 <ul>
-                    <li>AirDrop clone for cross-platform file sharing</li>
+                    <li>adding TURN servers to PeerDrop for transfers across different networks</li>
                     <li>text editor using in-memory storage patterns from file manager</li>
                     <li>aws s3 backend integration with file chunking</li>
                     <li>automated data extraction for work projects</li>
@@ -763,8 +769,8 @@
                 <h3>current focus</h3>
                 <ul>
                     <li><code>go backend development</code> - web servers, storage systems, file sharing</li>
+                    <li><code>peer-to-peer networking</code> - WebRTC, WebSocket signaling, NAT traversal</li>
                     <li><code>cloud patterns</code> - file chunking, in-memory caching, aws s3</li>
-                    <li><code>data visualization</code> - streamlit, matplotlib, interactive maps</li>
                     <li><code>real-time systems</code> - apis, live data feeds</li>
                 </ul>
 
