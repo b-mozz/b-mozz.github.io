@@ -677,7 +677,7 @@
                     <line x1="24" y1="88" x2="98" y2="88" stroke="currentColor" stroke-width="0.8" opacity="0.15"/>
                 </svg>
             </div>
-            <div class="role">computer science student</div>
+            <div class="role">cs student • backend systems & ml research</div>
             <div class="location">cuny hunter college • new york</div>
         </header>
 
@@ -693,11 +693,15 @@
         <main>
             <!-- About Section -->
             <section class="section active fade-in" id="about">
-                <p>cs student at hunter college working on projects that solve actual problems. just finished building PeerDrop - a browser-based AirDrop clone that works across platforms.</p>
+                <p>cs student at hunter college (minor in math, 3.93 gpa, graduating jan 2028) who likes building the layer underneath - key-value stores, schedulers, signaling servers. lately also training diffusion models on genomic data.</p>
 
                 <div class="status">
                     <span class="status-dot"></span>
-                    software engineering intern at unadat (summer 2025)
+                    ml research assistant at hunter college (mar 2026 - present)
+                </div>
+                <div class="status">
+                    <span class="status-dot"></span>
+                    google swep fellow (mar 2026 - present)
                 </div>
                 <div class="status">
                     <span class="status-dot"></span>
@@ -708,13 +712,12 @@
 
                 <h3>recent projects</h3>
                 <ul>
+                    <li>redis clone - in-memory key-value store in go, written from scratch</li>
+                    <li>DegreeFlow - automated degree audit + course scheduler for hunter students</li>
                     <li>PeerDrop - browser-based AirDrop clone using WebRTC</li>
-                    <li>cloud file manager - learning file chunking and in-memory storage</li>
-                    <li>crypto price tracker with real-time alerts</li>
-                    <li>nyc neighborhoods data visualization</li>
                 </ul>
 
-                <p>currently exploring peer-to-peer networking and WebRTC after building PeerDrop. learned a ton about WebSocket signaling and NAT traversal. next up is diving deeper into aws s3 integration and building a "file clipboard" project using the storage patterns i've been learning.</p>
+                <p>right now i'm deep in the redis clone - custom hash table, progressive rehashing, a binary wire protocol, and enough concurrency to keep the race detector busy. on the research side i'm working on a two-stage diffusion model for synthetic RNA-seq data (VAE with gumbel-softmax, MLP denoiser) across 20,000+ genomic features.</p>
             </section>
 
             <div class="ascii-divider">
@@ -726,9 +729,21 @@
                 <h2>recent work</h2>
 
                 <div class="card">
+                    <h4><a href="https://github.com/b-mozz/redis-go" target="_blank">redis clone</a></h4>
+                    <p>an in-memory key-value store in go, built from the ground up. custom hash table using MurmurHash3 with separate chaining, plus progressive rehashing so a resize doesn't cause an O(n) latency spike. the wire protocol is typed and length-prefixed, served by a goroutine-per-connection TCP server over a mutex-guarded store. TTLs expire two ways - lazily on access, and actively via a bounded sweep. verified under go's race detector with a multi-goroutine stress test, and benchmarked against sync.Map and map+RWMutex to see where the tradeoffs actually land. CI on github actions.</p>
+                    <div class="meta">latest • go, tcp, hash tables, concurrency • <a href="https://github.com/b-mozz/redis-go" target="_blank">github</a></div>
+                </div>
+
+                <div class="card">
+                    <h4><a href="https://github.com/b-mozz/degreeflow" target="_blank">DegreeFlow</a></h4>
+                    <p>automated degree-audit tool - you give it what you have left, it gives you a semester-by-semester plan. i led the backend: a scheduler that generates prerequisite-valid course plans across an 8,800+ course catalog. also built a recommender that pairs each suggested class with its best instructor, ranking professors with a bayesian-weighted rating over scraped RateMyProfessors data so a single 5-star review doesn't beat a hundred good ones.</p>
+                    <div class="meta"><a href="https://degree-flow-omega.vercel.app/upload" target="_blank">live</a> • react, typescript, node.js, prisma, postgresql • <a href="https://github.com/b-mozz/degreeflow" target="_blank">github</a></div>
+                </div>
+
+                <div class="card">
                     <h4><a href="https://github.com/b-mozz/p2p-fileshare" target="_blank">PeerDrop</a></h4>
                     <p>browser-based cross-platform AirDrop. built this for the lab i work at - we support 300+ students weekly who need to share JASP/Excel files with tutors while working through problems. uploading to cloud storage every time was inefficient and slow. files transfer directly between browsers using WebRTC - no cloud needed. built a go signaling server with WebSocket for real-time peer connections. the server never touches your files, just helps browsers find each other. works on same network with mDNS (.local) support. hopefully makes file sharing easier for students and tutors. <a href="https://programmingpercy.tech/blog/mastering-websockets-with-go/" target="_blank" style="color: var(--accent-primary);">this article</a> on WebSockets was super helpful for understanding the signaling part.</p>
-                    <div class="meta">latest • go, webrtc, websocket, vanilla js • <a href="https://github.com/b-mozz/p2p-fileshare" target="_blank">github</a></div>
+                    <div class="meta">oct 2025 • go, webrtc, websocket, docker • <a href="https://github.com/b-mozz/p2p-fileshare" target="_blank">github</a></div>
                 </div>
 
                 <div class="card">
@@ -755,12 +770,18 @@
                     <div class="meta"><a href="https://bmozz.infy.uk/?i=2" target="_blank">live</a>• php, javascript • <a href="https://github.com/b-mozz/P-Dashboard" target="_blank">github</a></div>
                 </div>
 
+                <h3>research</h3>
+                <div class="card">
+                    <h4><a href="https://www.kaggle.com/code/bimukti/training-neva" target="_blank">SDXL style consistency (LoRA + pivotal tuning)</a></h4>
+                    <p>fine-tuned SDXL with LoRA via pivotal tuning to keep a consistent art style across generated game art - improved style consistency by 16% as measured by CLIP-similarity.</p>
+                    <div class="meta">pytorch, hugging face diffusers • <a href="https://www.kaggle.com/code/bimukti/training-neva" target="_blank">kaggle</a></div>
+                </div>
+
                 <h3>next up</h3>
                 <ul>
+                    <li>replication and persistence (AOF/snapshotting) for the redis clone</li>
+                    <li>finishing the two-stage RNA-seq diffusion pipeline</li>
                     <li>adding TURN servers to PeerDrop for transfers across different networks</li>
-                    <li>text editor using in-memory storage patterns from file manager</li>
-                    <li>aws s3 backend integration with file chunking</li>
-                    <li>automated data extraction for work projects</li>
                 </ul>
             </section>
 
@@ -773,14 +794,26 @@
                 <h2>work experience</h2>
 
                 <div class="card">
-                    <h4>software engineering intern</h4>
-                    <p>developing and maintaining web applications using php, javascript, and mysql at unadat. building automated data extraction systems for pdf/email processing, reducing data entry time for the company. implementing notification system features and restful apis.</p>
-                    <div class="meta">summer 2025 • unadat, new york</div>
+                    <h4>machine learning research assistant</h4>
+                    <p>developing a two-stage diffusion model for synthetic RNA-seq generation, modeling 20,000+ high-dimensional genomic features with a VAE using gumbel-softmax and an MLP denoiser. also worked on style consistency for game art generation - fine-tuned SDXL with LoRA via pivotal tuning, +16% on CLIP-similarity.</p>
+                    <div class="meta">mar 2026 - present • cuny hunter college</div>
                 </div>
 
                 <div class="card">
-                    <h4>it technician - social science computing lab</h4>
-                    <p>maintaining lab equipment and troubleshooting software applications. supporting 300+ students and faculty with educational technology including stata, spss, excel, and research tools. maintaining lab website up to date.</p>
+                    <h4>software engineering fellow (google-swep)</h4>
+                    <p>selected as 1 of 250 from 1,900+ applicants for a year-long technical development program with 1:1 mentorship from a google software engineer. weekly sessions on data structures, algorithms, and system design, plus behavioral prep and code review against industry engineering practices.</p>
+                    <div class="meta">mar 2026 - present • google, new york</div>
+                </div>
+
+                <div class="card">
+                    <h4>software engineering intern</h4>
+                    <p>built an ml-powered alert system on nyc public school data to help case managers reach at-risk students earlier. wrote a python pipeline that parses pdfs and emails into structured records, cutting manual data entry. integrated the docusign api with a node.js backend to automate authentication and contract signing.</p>
+                    <div class="meta">jun - aug 2025 • unadat, new york</div>
+                </div>
+
+                <div class="card">
+                    <h4>student it assistant - social sciences computing lab</h4>
+                    <p>supporting 300+ students weekly across 43 lab machines - os imaging, hardware and software troubleshooting, account provisioning, and keeping research software current (r/rstudio, arcgis pro, nvivo).</p>
                     <div class="meta">oct 2024 - present • cuny hunter college</div>
                 </div>
 
@@ -816,28 +849,49 @@
                 <h3>languages</h3>
                 <div class="skills">
                     <div class="skill">go</div>
-                    <div class="skill">javascript</div>
                     <div class="skill">python</div>
                     <div class="skill">c++</div>
-                    <div class="skill">php</div>
+                    <div class="skill">typescript</div>
+                    <div class="skill">javascript</div>
+                    <div class="skill">sql</div>
                 </div>
 
                 <h3>current focus</h3>
                 <ul>
-                    <li><code>go backend development</code> - web servers, storage systems, file sharing</li>
+                    <li><code>systems in go</code> - key-value stores, hash tables, wire protocols, concurrency</li>
+                    <li><code>generative ml</code> - diffusion models, VAEs, LoRA fine-tuning, pytorch</li>
+                    <li><code>backend</code> - node.js, prisma, postgresql, api design</li>
                     <li><code>peer-to-peer networking</code> - WebRTC, WebSocket signaling, NAT traversal</li>
-                    <li><code>cloud patterns</code> - file chunking, in-memory caching, aws s3</li>
-                    <li><code>real-time systems</code> - apis, live data feeds</li>
                 </ul>
+
+                <h3>frameworks</h3>
+                <div class="skills">
+                    <div class="skill">react</div>
+                    <div class="skill">node.js</div>
+                    <div class="skill">express</div>
+                    <div class="skill">hugging face diffusers</div>
+                    <div class="skill">django</div>
+                </div>
 
                 <h3>tools</h3>
                 <div class="skills">
-                    <div class="skill">docker</div>
                     <div class="skill">git</div>
-                    <div class="skill">mysql</div>
-                    <div class="skill">heroku</div>
-                    <div class="skill">node.js</div>
-                    <div class="skill">streamlit</div>
+                    <div class="skill">docker</div>
+                    <div class="skill">linux</div>
+                    <div class="skill">postgresql</div>
+                    <div class="skill">redis</div>
+                    <div class="skill">prisma</div>
+                    <div class="skill">aws s3</div>
+                    <div class="skill">openai api</div>
+                </div>
+
+                <h3>libraries</h3>
+                <div class="skills">
+                    <div class="skill">pytorch</div>
+                    <div class="skill">pandas</div>
+                    <div class="skill">numpy</div>
+                    <div class="skill">scikit-learn</div>
+                    <div class="skill">puppeteer</div>
                 </div>
             </section>
 
@@ -849,7 +903,7 @@
             <section class="section fade-in" id="resume">
                 <h2>resume</h2>
 
-                <p>computer science student at cuny hunter college with a 3.93 gpa. thomas hunter honors program. hands-on experience in software engineering, web development, and cloud storage systems.</p>
+                <p>ba in computer science with a math minor at cuny hunter college, 3.93 gpa, expected jan 2028. thomas hunter honors program and dean's list. experience across backend systems, machine learning research, and full-stack web development.</p>
 
                 <h3>preview</h3>
                 <div style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-bottom: 24px;">
@@ -885,9 +939,14 @@
                         <div class="contact-value">github.com/b-mozz</div>
                     </a>
 
-                    <a href="mailto:bimukti.mozzumdar56@myhunter.cuny.edu" class="contact-card">
+                    <a href="https://www.linkedin.com/in/bimukti-mozzumdar" class="contact-card" target="_blank">
+                        <div class="contact-label">linkedin</div>
+                        <div class="contact-value">in/bimukti-mozzumdar</div>
+                    </a>
+
+                    <a href="mailto:bimuktimozzumdar@gmail.com" class="contact-card">
                         <div class="contact-label">email</div>
-                        <div class="contact-value">bimukti.mozzumdar56@myhunter.cuny.edu</div>
+                        <div class="contact-value">bimuktimozzumdar@gmail.com</div>
                     </a>
 
                     <a href="tel:+19342189593" class="contact-card">
@@ -902,7 +961,8 @@
                 <h3>let's talk about</h3>
                 <ul>
                     <li>software engineering internships and opportunities</li>
-                    <li>data visualization and analysis projects</li>
+                    <li>distributed systems, databases, and anything written in go</li>
+                    <li>diffusion models and generative ml research</li>
                     <li>web development and api integration</li>
                     <li>computer science education and mentoring</li>
                     <li>multilingual technology accessibility</li>
